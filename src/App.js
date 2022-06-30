@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
+import HomeScreen from './screen/HomeScreen'
+import LoginScreen from './screen/LoginScreen'
+import PostDetailsScreen from './screen/PostDetailsScreen'
+import ProfileScreen from './screen/ProfileScreen'
+import RegisterScreen from './screen/RegisterScreen'
+import TweetDetailsScreen from './screen/TweetDetailsScreen'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomeScreen} />
+        <Route path="/profile/:id" component={ProfileScreen} />
+        <Route path="/post/:id" component={PostDetailsScreen} />
+        <Route path="/login" component={LoginScreen} />
+        <Route path="/register" component={RegisterScreen} />
+        <Route path="/tweet/:id" component={TweetDetailsScreen}/>
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App
